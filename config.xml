@@ -55,24 +55,17 @@
 		<gap:plugin name="org.apache.cordova.network-information"  />
 		<gap:plugin name="org.apache.cordova.splashscreen"  />
 		
-		<platform name ="ios">
-				<splash src="res/splash/ios/320x480.png" width="320" height="480" />
-				<splash src="res/splash/ios/640x960.png" width="640" height="960" />
-				<splash src="res/splash/ios/640x1136.png" width="640" height="1136" />
-				<splash src="res/splash/ios/768x1024.png" width="768" height="1024 " />
-		</platform>
-
-		<platform name="android">
-		 		<splash src="res/splash/android/240x400.png" density="port-ldpi" />
-				<splash src="res/splash/android/320x480.png" density="port-mdpi" />
-				<splash src="res/splash/android/480x800.png" density="port-hdpi" />
-				<splash src="res/splash/android/720x960.png" density="port-xhdpi" />
-				<splash src="res/splash/android/1080x1920.png" density="port-xxhdpi" />
-		</platform>
-
-		<platform name="wp8">
-				<splash src="res/splash/wp/480x800.png"	width="480" height="800"/>
-		</platform>
+		<gap:splash src="res/splash/ios/320x480.png" gap:platform="ios" width="320" height="480" />
+		<gap:splash src="res/splash/ios/640x960.png" gap:platform="ios" width="640" height="960" />
+		<gap:splash src="res/splash/ios/640x1136.png" gap:platform="ios" width="640" height="1136" />
+		<gap:splash src="res/splash/ios/768x1024.png" gap:platform="ios" width="768" height="1024 " />
+		<gap:splash src="res/splash/android/240x400.png" gap:platform="android" gap:density="ldpi" />
+		<gap:splash src="res/splash/android/320x480.png" gap:platform="android" gap:density="mdpi" />
+		<gap:splash src="res/splash/android/480x800.png" gap:platform="android" gap:density="hdpi" />
+		<gap:splash src="res/splash/android/720x960.png" gap:platform="android" gap:density="xhdpi" />
+		<gap:splash src="res/splash/android/1080x1920.png" gap:platform="android" gap:density="xxhdpi" />
+		<gap:splash src="res/splash/wp/480x800.png" gap:platform="winphone" />
+		<gap:splash src="splash.png" />
 
 		<icon src="res/icon/64d.png" />	
 
