@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<widget xmlns = "http://www.w3.org/ns/widgets"
+		xmlns:gap = "http://phonegap.com/ns/1.0"
+		id 		  = "com.Carlos.Vargas"
+		version   = "1.0.0"
+		android-versionCode="1"
+		ios-CFBundleVersion="1.0.0">
+		<name>RCS Reports</name>
+		<description>RCS Reports the best reports in real time for your company.</description>
+		<author href="http://retailcs.com/" email="devmobile@realcs.com">Retail Custom Solutions</author>
+		<preference name="phonegap-version" value="3.6.3" />
+		<preference name="Fullscreen" value="false" />
+		<preference name="Orientation" value="portrait" />
+		<preference name="DisallowOverscroll" value="true"/>
+		<preference name="BackgroundColor" value="0x000000"/>
+		<preference name="HideKeyboardFormAccessoryBar" value="true" />
+
+		<preference name="target-device" value="universal" />
+		<preference name="webviewbounce" value="true" />
+		<preference name="prerendered-icon" value="true" />
+		<preference name="stay-in-webview" value="true" />
+		<preference name="android-hardwareAccelerated" value="true" />
+<!--<preference name="ios-statusbarstyle" value="white-transparent" />-->
+        <preference name="StatusBarOverlaysWebView" value="true" />
+        <preference name="StatusBarStyle" value="lightcontent" />
+		<preference name="detect-data-types" value="true" />
+		<preference name="exit-on-suspend" value="true" />
+		<preference name="show-splash-screen-spinner" value="true" />
+		<preference name="auto-hide-splash-screen" value="true" />
+		<!-- <preference name="EnableViewportScale" value="true" /> -->
+		<preference name="MediaPlaybackRequiresUserAction" value="true" />
+		<preference name="AllowInlineMediaPlayback" value="true" />
+		<preference name="BackupWebStorage" value="cloud" />
+		<preference name="TopActivityIndicator" value="gray" />
+<!-- <preference name="KeyboardDisplayRequiresUserAction" value="true" /> -->
+		
+		<preference name="SuppressesIncrementalRendering" value="true" />
+		<preference name="android-minSdkVersion" value="8" />
+		<preference name="android-targetSdkVersion" value="19" />
+		<preference name="android-installLocation" value="preferExternal" />
+		<preference name="SplashScreenDelay" value="1000" />
+		<preference name="ErrorUrl" value=""/>
+		<preference name="KeepRunning" value="true"/>
+		
+		<!-- <preference name="LoadingDialog" value=","/>  -->
+		<preference name="LoadUrlTimeoutValue" value="20000" />
+		<preference name="disable-cursor" value="true" />
+		<!-- Platforms: Customize as needed. -->
+
+		<gap:platform name="ios" />
+		<gap:platform name="android" />
+		<gap:platform name="winphone" />
+
+		<feature name="http://api.phonegap.com/1.0/network"/>
+		<gap:plugin name="org.apache.cordova.network-information"  />
+		<gap:plugin name="org.apache.cordova.splashscreen"  />
+		
+		<platform name ="ios">
+				<splash src="res/splash/ios/320x480.png" width="320" height="480" />
+				<splash src="res/splash/ios/640x960.png" width="640" height="960" />
+				<splash src="res/splash/ios/640x1136.png" width="640" height="1136" />
+				<splash src="res/splash/ios/768x1024.png" width="768" height="1024 " />
+		</platform>
+
+		<platform name="android">
+		 		<splash src="res/splash/android/240x400.png" density="port-ldpi" />
+				<splash src="res/splash/android/320x480.png" density="port-mdpi" />
+				<splash src="res/splash/android/480x800.png" density="port-hdpi" />
+				<splash src="res/splash/android/720x960.png" density="port-xhdpi" />
+				<splash src="res/splash/android/1080x1920.png" density="port-xxhdpi" />
+		</platform>
+
+		<platform name="wp8">
+				<splash src="res/splash/wp/480x800.png"	width="480" height="800"/>
+		</platform>
+
+		<icon src="res/icon/64d.png" />	
+
+		<platform name="ios">	
+				<icon src="res/icon/ios/57.png" width="57" height="57" />
+				<icon src="res/icon/ios/72.png" width="72" height="72" />
+				<icon src="res/icon/ios/114.png" width="114" height="114" />
+				<icon src="res/icon/ios/144a.png" width="144" height="144" />
+				<icon src="res/icon/ios/76.png" width="76" height="76" />
+				<icon src="res/icon/ios/120.png" width="120" height="120" />
+				<icon src="res/icon/ios/152.png" width="152" height="152" />
+		</platform>		
+
+		<platform name="android">	
+				<icon src="res/icon/android/36.png" density="ldpi" />
+				<icon src="res/icon/android/48.png"  density="mdpi" />
+				<icon src="res/icon/android/72a.png" density="hdpi" />
+				<icon src="res/icon/android/96.png" density="xhdpi" />
+				<icon src="res/icon/android/144.png" density="xxhdpi" />
+				<icon src="res/icon/android/192.png" density="xxxhdpi" />
+		</platform>	
+
+		<platform name="wp8">
+				<icon src="res/wp/ApplicationIcon.png" width="99" height="99" />
+				<icon src="res/icon/wp/62w.png"  width="62" height="62"/>
+				<icon src="res/icon/wp/173w.png"  width="173" height="173"/>	
+		</platform>	
+
+	
+		<gap:splash src="splash.png" />
+		<content src="index.html" />
+		<access origin="*" />
+	</widget>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>RCS Reports</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+  <meta name="description" content="">
+  <meta name="author" content="">
+	
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+
+  <!-- Fav and touch icons -->
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <script type="text/javascript" src="js/database.js"></script>
+   
+    <!-- AmCharts-->
+    <script type="text/javascript" src="js/amcharts.js"></script>
+    <script type="text/javascript" src="js/serial.js"></script>
+     <!-- TAG LENGUAGES -->
+    <script type="text/javascript" src="js/constant-es.js"></script>
+
+    <script  type="text/javascript">
+
+        $(window).load(function(){
+            
+             onInit();    
+             deteclenguage();
+             hideCombo();
+             if(checkNetConnection()==true){
+                downloadByCompany("1","1");
+
+             }else{
+                 mostrarModalGeneral();
+             }
+                 
+        });
+
+        $(document).ready(function(){
+        
+             $("#refresh").click(function(){
+                var principal = $("ul.select-general li:first-child()").attr("data-value");
+           
+                if(checkNetConnection()==true){
+                    var chActual = get_chActual();
+                    var chGlobal = get_chGlobal();
+                   if(principal==1){
+                    downloadByCompany(chActual,chGlobal);
+                   }else if(principal==2){
+                    downloadByRegion(chActual,chGlobal);
+                   }else if(principal==3){
+                    downloadByStore(chActual,chGlobal);
+                   }
+
+                }else{
+                    mostrarModalGeneral();
+                }
+             });
+
+        });		      
+
+        function addID(abc){
+            $("#txtvalue").val(abc);
+        }
+
+        function addIDDelete(id){
+            $("#txtvaluedelete").val(id);
+        }
+
+        function ocultaMiModal(){
+            var id = $("#txtvalue").val();
+            console.log("id presionado: "+id);
+            updateStateURL(id);
+
+        }
+
+        function ocultaMiModalDelete(){
+            var id = $("#txtvaluedelete").val();
+            console.log("id presionado: "+id);
+            deleteServer(id);
+
+        }
+ 
+
+    </script>
+
+    <script type="text/javascript" charset="utf-8"> 
+    
+        document.addEventListener('deviceready', onDeviceReady, false);
+        
+        function onDeviceReady() {
+              document.addEventListener("backbutton", onBackKeyDown, false);            
+        }
+
+       function onBackKeyDown() {
+            navigator.app.exitApp();
+       }
+    </script>
+
+</head>
+
+<body>
+<div class="container">
+    <div class=" fixedbg">
+        <div class=" fixedbgblack">        
+            <div class="row vs">
+                <div class="col-xs-3">
+                    <button id="alias" onclick="moveToLeft();"><span name="txtpreferences" id="txtpreferences">Preferences</span></button>
+                </div>
+                <div class="col-xs-6">
+                    <button id="refresh" name="refresh"><p class="text-center title" name="storetitle" id="storetitle" >Goals vs Sales</p></button>
+                </div>
+                <div class="col-xs-3">
+                    <button id="more-info" onclick="mostrarInfo();"><img src="img/more.png" class="more-info"></button>
+                </div>
+            </div>
+            <div class="row general">
+                <ul class="select-general">
+                    <li data-value="1" class="init" ><p>By Company</p></li>
+                    <li data-value="1" class="item" ><p>By Company</p></li>
+                    <li data-value="2" class="item"><p>By Region</p></li>
+                    <li data-value="3" class="item"><p>By Store</p></li>
+                </ul>                
+            </div>
+            <div class="row lines">
+                <div class="select-style">
+                    <ul class="select-date">
+                        <li data-value="1" class="init" ><p>Today</p><div id="time"></div></li>
+                        <li data-value="1" class="item"><p>Today</p><div id="today"></div></li>
+                        <li data-value="2" class="item"><p>Yesterday</p><div id="yesterday"></div></li>
+                        <li data-value="3" class="item"><p>Week to Date</p><div id="week"></div></li>
+                        <li data-value="4" class="item"><p>Month to Date</p><div id="month"></div></li>
+                        <li data-value="5" class="item"><p>Year to Date</p><div id="year"></div></li>
+                    </ul>                
+                </div>
+            </div>
+            <div class="row region" id="divRegion">
+                <ul class="select-region" id="selectRegion">
+                    <!-- items de combo region-->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+<!--    <div class="row fixedbg"></div>-->
+<!--    <script type="text/javascript" src="js/scripts.js"></script>-->
+    <div class="row stores" id="items">
+    <!--
+        <div class="col-xs-12">
+            <div class="panel-group" id="items">
+            
+			</div>            
+		</div>
+    -->
+	</div>
+</div>
+    
+    <!-- Modal -->
+
+    <div class="modal fade" id="show_loading" >
+        <div class="modal-dialog">
+            <div class="text-center loading">
+                <div></div>
+                <div></div>
+            </div>
+            <!-- <div class="text-center"><p name="txtloading" id="txtloading"></p></div> -->
+            <input type="hidden" id="txtocultaloading" name="txtocultaloading" data-dismiss="modal" aria-hidden="true" />
+        </div>
+    </div>
+
+    <!-- Information -->
+    <div class="modal fade" id="show_info" >
+        <input type="hidden" name="txtvalue" id="txtvalue" value="0">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" name="btnclose" id="btnclose">×</button>
+                    <h4 class="modal-title" id="lblmodaldicc">
+                        Dictionary
+                    </h4>
+                </div>
+                <div class="modal-body">
+                        <div class="col-xs-6"><div>TG:</div><span>Today Goal</span></div>
+                        <div class="col-xs-6"><div>TS:</div><span>Today Sale</span></div>
+
+                        <div class="col-xs-6"><div>YG:</div><span>Yesterday Goal</span></div>
+                        <div class="col-xs-6"><div>YS:</div><span>Yesterday Sale</span></div>
+
+                        <div class="col-xs-6"><div>WG:</div><span>Week Goal</span></div>
+                        <div class="col-xs-6"><div>WS:</div><span>Week Sale</span></div>
+
+                        <div class="col-xs-6"><div>MG:</div><span>Month Goal</span></div>
+                        <div class="col-xs-6"><div>MS:</div><span>Month Sale</span></div>
+
+                        <div class="col-xs-6"><div>AG:</div><span>Annual Goal</span></div>
+                        <div class="col-xs-6"><div>AS:</div><span>Annual Sale</span></div>
+
+                        <div class="col-xs-6"><div>CG:</div><span>Complete Year Goal</span></div>
+                        <div class="col-xs-6"><div>CS:</div><span>Complete Year Sale</span></div>
+                </div>
+                <div class="modal-footer add">
+                    <button type="button" class="btn btn-rcs" id="btnok" name="btnno" data-dismiss="modal" aria-hidden="true">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="preferences" id="preferences">
+        <button id="exit" name="return" onclick="retornarStores();">
+            <img src="img/exit.png" >
+            <span>Back</span>
+        </button>
+        <div class="header title" id="txtpreferences_title">
+            Preferences
+        </div>
+        <div class="contenido">
+            <div class="changeView">
+                <span>Visualization</span>
+                <!-- <div class="checkbox_view" onclick="updateActual()">-->
+                <div class="checkbox_view">
+                    <input type="checkbox" name="check_actual" id="check_actual" onclick = "updateActual()" checked><label class="text-checkbox current">Show Current</label>
+                </div> 
+                <!-- <div class="checkbox_view" onclick="updateGlobal()"> -->
+                <div class="checkbox_view">
+                    <input type="checkbox" name="check_global" id="check_global" onclick="updateGlobal()" checked><label class="text-checkbox global">Show Global</label>
+                </div> 
+            </div>
+            <div class="changeOrden">
+                <span>Order by</span>
+                <div class="checkbox_view" onclick="cambiarTotal()">
+                    <input type="checkbox" name="check_sales" id="check_sales"><label name="txtchksales" id="txtchksales" class="text-checkbox">Sales ↑</label>
+                </div> 
+                <div class="checkbox_view" onclick="cambiarMetas()">
+                    <input type="checkbox" name="check_goals" id="check_goals"><label name="txtchkgoals" id="txtchkgoals" class="text-checkbox">Goals ↑</label>
+                </div> 
+            </div>
+        </div>        
+    </div>   
+    
+    <script type="text/javascript" src="js/scripts.js"></script>
+
+</body>
+
+</html>
