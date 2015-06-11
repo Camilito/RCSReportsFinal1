@@ -1,26 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
-		id 		  = "com.RealCS.RCSReports"
-		version   = "1.0.0"
-		android-versionCode="1"
-		ios-CFBundleVersion="1.0.0">
+		id        = "com.Henry.Tacuchi"
+		versionCode="1"
+		version   = "1.0.0">
 		<name>RCS Reports</name>
-		<description>RCS Reports the best reports in real time for your company.</description>
+		<description>RCS Reports</description>
 		<author href="http://retailcs.com/" email="devmobile@realcs.com">Retail Custom Solutions</author>
 		<preference name="phonegap-version" value="3.6.3" />
-		<preference name="Fullscreen" value="false" />
 		<preference name="orientation" value="portrait" />
-		<preference name="DisallowOverscroll" value="true"/>
-		<preference name="BackgroundColor" value="0x000000"/>
-		<preference name="HideKeyboardFormAccessoryBar" value="true" />
-
+		<preference name="fullscreen" value="false" />
 		<preference name="target-device" value="universal" />
 		<preference name="webviewbounce" value="true" />
 		<preference name="prerendered-icon" value="true" />
 		<preference name="stay-in-webview" value="true" />
 		<preference name="android-hardwareAccelerated" value="true" />
-<!--<preference name="ios-statusbarstyle" value="white-transparent" />-->
+<!--		<preference name="ios-statusbarstyle" value="white-transparent" />-->
         <preference name="StatusBarOverlaysWebView" value="true" />
         <preference name="StatusBarStyle" value="lightcontent" />
 		<preference name="detect-data-types" value="true" />
@@ -32,29 +27,42 @@
 		<preference name="AllowInlineMediaPlayback" value="true" />
 		<preference name="BackupWebStorage" value="cloud" />
 		<preference name="TopActivityIndicator" value="gray" />
-<!-- <preference name="KeyboardDisplayRequiresUserAction" value="true" /> -->
-		
+		<!-- <preference name="KeyboardDisplayRequiresUserAction" value="true" /> -->
+		<preference name="HideKeyboardFormAccessoryBar" value="true" />
 		<preference name="SuppressesIncrementalRendering" value="true" />
 		<preference name="android-minSdkVersion" value="8" />
 		<preference name="android-targetSdkVersion" value="19" />
 		<preference name="android-installLocation" value="preferExternal" />
 		<preference name="SplashScreenDelay" value="1000" />
 		<preference name="ErrorUrl" value=""/>
+		<preference name="BackgroundColor" value="0x000000"/>
 		<preference name="KeepRunning" value="true"/>
-		
+		<preference name="DisallowOverscroll" value="true"/>
 		<!-- <preference name="LoadingDialog" value=","/>  -->
 		<preference name="LoadUrlTimeoutValue" value="20000" />
 		<preference name="disable-cursor" value="true" />
-		<!-- Platforms: Customize as needed. -->
-
 		<gap:platform name="ios" />
 		<gap:platform name="android" />
 		<gap:platform name="winphone" />
-
 		<feature name="http://api.phonegap.com/1.0/network"/>
 		<gap:plugin name="org.apache.cordova.network-information"  />
 		<gap:plugin name="org.apache.cordova.splashscreen"  />
-		
+		<icon src="res/icon/ios/57.png" gap:platform="ios" width="57" height="57" />
+		<icon src="res/icon/ios/72.png" gap:platform="ios" width="72" height="72" />
+		<icon src="res/icon/ios/114.png" gap:platform="ios" width="114" height="114" />
+		<icon src="res/icon/ios/144a.png" gap:platform="ios" width="144" height="144" />
+		<icon src="res/icon/ios/76.png" gap:platform="ios" width="76" height="76" />
+		<icon src="res/icon/ios/120.png" gap:platform="ios" width="120" height="120" />
+		<icon src="res/icon/ios/152.png" gap:platform="ios" width="152" height="152" />
+		<icon src="res/icon/android/36.png" gap:platform="android" gap:density="ldpi" />
+		<icon src="res/icon/android/48.png" gap:platform="android" gap:density="mdpi" />
+		<icon src="res/icon/android/72a.png" gap:platform="android" gap:density="hdpi" />
+		<icon src="res/icon/android/96.png" gap:platform="android" gap:density="xhdpi" />
+		<icon src="res/icon/android/144.png" gap:platform="android" gap:density="xxhdpi" />
+		<icon src="res/icon/android/192.png" gap:platform="android" gap:density="xxxhdpi" />
+		<icon src="res/icon/wp/62w.png" gap:platform="winphone" />
+		<icon src="res/icon/wp/173w.png" gap:platform="winphone" gap:role="background" />
+		<icon src="res/icon/64d.png" />		
 		<gap:splash src="res/splash/ios/320x480.png" gap:platform="ios" width="320" height="480" />
 		<gap:splash src="res/splash/ios/640x960.png" gap:platform="ios" width="640" height="960" />
 		<gap:splash src="res/splash/ios/640x1136.png" gap:platform="ios" width="640" height="1136" />
@@ -66,36 +74,5 @@
 		<gap:splash src="res/splash/android/1080x1920.png" gap:platform="android" gap:density="xxhdpi" />
 		<gap:splash src="res/splash/wp/480x800.png" gap:platform="winphone" />
 		<gap:splash src="splash.png" />
-
-		<icon src="res/icon/64d.png" />	
-
-		<platform name="ios">	
-				<icon src="res/icon/ios/57.png" width="57" height="57" />
-				<icon src="res/icon/ios/72.png" width="72" height="72" />
-				<icon src="res/icon/ios/114.png" width="114" height="114" />
-				<icon src="res/icon/ios/144a.png" width="144" height="144" />
-				<icon src="res/icon/ios/76.png" width="76" height="76" />
-				<icon src="res/icon/ios/120.png" width="120" height="120" />
-				<icon src="res/icon/ios/152.png" width="152" height="152" />
-		</platform>		
-
-		<platform name="android">	
-				<icon src="res/icon/android/36.png" density="ldpi" />
-				<icon src="res/icon/android/48.png"  density="mdpi" />
-				<icon src="res/icon/android/72a.png" density="hdpi" />
-				<icon src="res/icon/android/96.png" density="xhdpi" />
-				<icon src="res/icon/android/144.png" density="xxhdpi" />
-				<icon src="res/icon/android/192.png" density="xxxhdpi" />
-		</platform>	
-
-		<platform name="wp8">
-				<icon src="res/wp/ApplicationIcon.png" width="99" height="99" />
-				<icon src="res/icon/wp/62w.png"  width="62" height="62"/>
-				<icon src="res/icon/wp/173w.png"  width="173" height="173"/>	
-		</platform>	
-
-	
-		<gap:splash src="splash.png" />
-		<content src="index.html" />
 		<access origin="*" />
 	</widget>
