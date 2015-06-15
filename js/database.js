@@ -756,7 +756,7 @@ $.ajax({
                                             mostrar += "<p>"+parseFloat(goalAmountGlobal).toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")+"</p>";
                                             mostrar += "<p>"+lblGlobalSale+"</p>"
                                             mostrar += "<p>"+parseFloat(payTotalGlobal).toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")+"</p>";
-                                            mostrar += "<p class='"+color+"'>"+percentGlobal+" %</p>";
+                                            mostrar += "<p class='"+colorGlobal+"'>"+percentGlobal+" %</p>";
 
                                 mostrar += "</div>";
                                 }
@@ -999,7 +999,7 @@ localDB.transaction(function(tx) {
                                             mostrar += "<p class='gol-number'>"+parseFloat(goalAmountGlobal).toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")+"</p>";
                                             mostrar += "<p class='type'>"+lblGlobalSale+"</p>"
                                             mostrar += "<p class='sale-number'>"+parseFloat(payTotalGlobal).toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")+"</p>";
-                                            mostrar += "<p class='"+color+"'>"+percentGlobal+" %</p>";
+                                            mostrar += "<p class='"+colorGlobal+"'>"+percentGlobal+" %</p>";
 
                                 mostrar += "</div>";
                                 }
@@ -1264,7 +1264,7 @@ $.ajax({
                                             mostrar += "<p class='gol-number'>"+parseFloat(goalAmountGlobal).toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")+"</p>";
                                             mostrar += "<p class='type'>"+lblGlobalSale+"</p>"
                                             mostrar += "<p class='sale-number'>"+parseFloat(payTotalGlobal).toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")+"</p>";
-                                            mostrar += "<p class='"+color+"'>"+percentGlobal+" %</p>";
+                                            mostrar += "<p class='"+colorGlobal+"'>"+percentGlobal+" %</p>";
 
                                 mostrar += "</div>";
                                 }
