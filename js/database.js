@@ -978,7 +978,7 @@ localDB.transaction(function(tx) {
                                 percent = parseFloat(percent).toFixed();
                                 percentGlobal = parseFloat(percentGlobal).toFixed();
 
-                                mostrar += "<h1>'"+regionName+"'</h1>";
+                                mostrar += "<h1>"+regionName+"</h1>";
                                 mostrar += "<ul class='col-xs-12'>";
                                 mostrar += "<li>";
                                 if(actual==1){
@@ -1241,7 +1241,7 @@ $.ajax({
                                 percent = parseFloat(percent).toFixed();
                                 percentGlobal = parseFloat(percentGlobal).toFixed();
 
-                                mostrar += "<h1>'"+storeName+"'</h1>";
+                                mostrar += "<h1>"+storeName+"</h1>";
                                 mostrar += "<ul class='col-xs-12' onclick=\"prueba('-"+indice+"')\">";
                                 mostrar += "<li>";
 

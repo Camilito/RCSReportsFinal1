@@ -610,7 +610,8 @@ option.option-style:focus{
 
 #alias {
     /*float: right;*/
-    width: 117px;
+    text-align: left;
+    width: 119px;
     height: 45px;
     background-color: transparent;
     border: 0px solid #fff;
@@ -1493,7 +1494,7 @@ body.menu{
         padding-left: 38px;
     }
     #alias {
-      width: 75px;
+        width: 78px;
     }
     button#more-info {
         float: right;
