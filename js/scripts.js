@@ -2,6 +2,10 @@ var value_global = "1";
 var ch_actual = "1";
 var ch_global = "1";
 var ch_principal ="0";
+
+var ch_order_payTotal = "";
+var ch_order_goalAmount = "";
+
 $(document).ready(function() {
 
     /* Today */
@@ -337,8 +341,6 @@ function moveToLeft(){
 
  function updateActual(){
             var principal = $("ul.select-general li:first-child()").attr("data-value");
-
-     
            ch_principal = principal;
             if($('#check_actual').is(':checked')){  
              ch_actual = "1";
@@ -348,11 +350,9 @@ function moveToLeft(){
               
 }
 
-
 function updateGlobal(){
 
     var principal = $("ul.select-general li:first-child()").attr("data-value");
-        
            ch_principal = principal; 
             if($('#check_global').is(':checked')){
              ch_global = "1";
@@ -362,17 +362,23 @@ function updateGlobal(){
         
 }
 
-
-
 //AQUI
 function retornarStores(principal){
 
   if(ch_principal == 1){
+
     downloadByCompany(ch_actual ,ch_global);
    }else if(ch_principal==2){
     downloadByRegion(ch_actual,ch_global);
    }else if(ch_principal==3){
-    downloadByStore(ch_actual ,ch_global);
+    downloadByStore(ch_actual ,ch_global,ch_order_payTotal,ch_order_goalAmount);
+   }
+   else if(ch_principal==0){
+    var value = $("ul.select-general li:first-child()").attr("data-value");
+
+    if(value==3){
+      downloadByStore(ch_actual ,ch_global,ch_order_payTotal,ch_order_goalAmount);  
+    }
    }
 
     $('body').removeClass('clean');
@@ -386,10 +392,11 @@ function cambiarMetas(){
     if($('#check_goals').is(':checked')){
         var text = "Goals ↓";
         $("#txtchkgoals").html(text);
-
+        ch_order_goalAmount = "1";    
     }else{
         var text = "Goals ↑";
         $("#txtchkgoals").html(text);
+        ch_order_goalAmount = ""; 
 
     }
 
@@ -400,10 +407,11 @@ function cambiarTotal(){
     if($('#check_sales').is(':checked')){
         var text = "Sales ↓";
         $("#txtchksales").html(text);
-
+         ch_order_payTotal="1";   
     }else{
         var text = "Sales ↑";
         $("#txtchksales").html(text);
+        ch_order_payTotal="";
     }
 
 }

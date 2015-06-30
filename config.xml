@@ -2,10 +2,10 @@
 	<widget xmlns = "http://www.w3.org/ns/widgets"
 		xmlns:gap = "http://phonegap.com/ns/1.0"
 		id        = "com.retailcustomsolutions.reports"
-		versionCode="1"
-		version   = "1.0.0">
-		<name>RCS Reports</name>
-		<description>RCS Reports</description>
+		versionCode="2"
+		version   = "1.0.1">
+		<name>RCS iReports</name>
+		<description>RCS iReports</description>
 		<author href="http://retailcs.com/" email="devmobile@realcs.com">
 		Retail Custom Solutions
 		</author>

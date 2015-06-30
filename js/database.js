@@ -1025,25 +1025,14 @@ localDB.transaction(function(tx) {
                 });
 
 
-
-
-
-
-
-
-
     });
     
   });
 
-
-
-    
-
 }
 
 
-function downloadByStore(actual_ ,global_){
+function downloadByStore(actual_ ,global_,_ch_order_payTotal,_ch_order_goalAmount){
 var xurl = "";
     var c_ip = "";
     var c_port = "";
@@ -1062,7 +1051,7 @@ var xurl = "";
      if(regionCode == "R-1"){
         regionCode = "";
      }
-     var array = {option: option, regionCode: regionCode, goal: "", total:""};
+     var array = {option: option, regionCode: regionCode, total : _ch_order_payTotal, goal:_ch_order_goalAmount};
 
      var actual = actual_;
      var global = global_;
@@ -1482,7 +1471,6 @@ function capture_variable(variable_){
 
 
 function updateCheckActual(principal,variable){
-
 
    retornarStores(principal , variable);
    
